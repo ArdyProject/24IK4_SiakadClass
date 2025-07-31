@@ -581,7 +581,7 @@ tbody tr:last-child td {
 }
 .comment-msg .timestamp { /* Changed from .chat-msg .timestamp */
     font-size: 0.55rem; /* Sedikit lebih besar */
-    color: red;
+    color: yellow;
     text-align: right;
     margin-top: 0.5rem;
     display: block;
