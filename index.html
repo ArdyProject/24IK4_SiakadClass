@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilmu Komputer Grup 4 - Stambuk 2024</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <nav class="container nav-bar">
+            <a href="#" class="nav-brand">IK-04 ST 24</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#jadwal">Jadwal</a>
+                <a href="#tugas">Tugas</a>
+                <a href="#galeri">Galeri</a>
+                <a href="#peta-kelas">Peta Kelas</a>
+                <a href="#chat">Chat</a>
+            </div>
+            <button id="mobile-menu-button" class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section id="home" class="hero scroll-animate">
+            <h1>Welcome Bro<br><span>Di Ilkom 4</span></h1>
+            <p class="subtitle">Stambuk 2024<br>27+ Mahasiswa Aktif</p>
+            <p class="tagline">Satu tempat untuk semua kebutuhan group kita.</p><br><h6><i>NB: Dilarang Mengutak Atik, Menghapus, menambahkan Tugas, Tanpa persetujuan!!!</i></h6>
+        </section>
+
+        <!-- Jadwal Kuliah Section -->
+        <section id="jadwal" class="content-section scroll-animate">
+            <h2 class="section-title">Jadwal Kuliah Semester 3</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Jam</th>
+                            <th>Mata Kuliah</th>
+                            <th>Dosen</th>
+                            <th>Ruangan</th><th>Ik4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Contoh data, bisa diisi dari JS jika dinamis -->
+                        <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+                        
+                                                <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+                        
+                                                <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+                        
+                                                <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+                        
+                                                <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+                        
+                                                <tr>
+                            <td data-label="Hari">Hari</td>
+                            <td data-label="Jam">Jam</td>
+                            <td data-label="Mata Kuliah">Matkul</td>
+                            <td data-label="Dosen">Dosen</td>
+                            <td data-label="Ruangan">Ruangam</td>
+                            <td data-label="IK4">30</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pencatatan Tugas Section -->
+        <section id="tugas" class="content-section scroll-animate">
+            <h2 class="section-title">Pencatatan Tugas</h2>
+            <div class="card">
+                <h3>Tambah Tugas Baru</h3>
+                <form id="form-tugas" class="form-grid">
+                    <input type="text" id="tugas-matkul" placeholder="Mata Kuliah" class="form-control" required>
+                    <input type="text" id="tugas-deskripsi" placeholder="Deskripsi Tugas" class="form-control" required>
+                    <input type="date" id="tugas-deadline" class="form-control" required>
+                    <input type="text" id="tugas-link" placeholder="Link Pengumpulan (Opsional)" class="form-control">
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-plus"></i> Tambah Tugas
+                    </button>
+                </form>
+            </div>
+            <div id="daftar-tugas" class="task-list">
+                <!-- Daftar tugas akan dimuat oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- Galeri Section -->
+        <section id="galeri" class="content-section scroll-animate">
+            <h2 class="section-title">Galeri Kelas</h2>
+            <div class="card">
+                 <h3>Upload Foto Baru <b>(Database Belum Sedia)</b></h3>
+                 <form id="form-galeri" class="form-inline">
+                    <input type="url" id="galeri-url" placeholder="Paste URL gambar di sini..." class="form-control" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-upload"></i> Upload
+                    </button>
+                 </form>
+                 <p class="form-hint">Anda bisa upload gambar ke <a href="https://postimages.org/" target="_blank">Postimages</a> lalu paste linknya.</p>
+            </div>
+            <div id="container-galeri" class="gallery-grid">
+                <!-- Foto-foto akan dimuat oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- Peta Kelas Section -->
+        <section id="peta-kelas" class="content-section scroll-animate">
+            <h2 class="section-title">Mahasiswa IK4 ST 2024</h2>
+            <div class="card">
+                <div class="whiteboard">Mahasiswa/i</div>
+                <div id="container-peta" class="seating-grid">
+                    <!-- Denah kelas akan digenerate oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Anonymus Section -->
+        <section id="chat" class="content-section scroll-animate">
+            <h2 class="section-title">Anonymus</h2>
+            <div class="chat-container card">
+                <div id="chat-box" class="chat-box">
+                    <!-- Pesan chat akan dimuat di sini -->
+                </div>
+                <div class="chat-input-area">
+                    <form id="form-chat" class="form-inline">
+                        <input type="text" id="chat-nama" placeholder="Nama Samaran" class="form-control" required>
+                        <input type="text" id="chat-pesan" placeholder="Ketik pesan..." class="form-control chat-message-input" required>
+                        <button type="submit" class="btn btn-primary btn-icon">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 - Ilmu Komputer Grup 4. Dibuat dengan untuk kebersamaan. Creat By KingProject</p>
+            <p class="user-id-display">ID Anonim anda <span id="user-id-display"></span></p>
+        </div>
+    </footer>
+    
+    <!-- Modal for Student Info -->
+    <div id="student-modal" class="modal-overlay">
+        <div class="modal-content card">
+            <button id="close-modal-button" class="modal-close-btn">&times;</button>
+            <div id="modal-body">
+                <!-- Konten modal akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Alert/Confirm Modal -->
+    <div id="custom-alert-modal" class="modal-overlay">
+        <div class="modal-content card">
+            <h3 id="custom-alert-title"></h3>
+            <p id="custom-alert-message"></p>
+            <div class="modal-actions">
+                <button id="custom-alert-ok" class="btn btn-primary">OK</button>
+                <button id="custom-alert-cancel" class="btn btn-secondary" style="background-color: var(--bg-light); color: var(--text-light); margin-left: 10px;">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
+
