@@ -3,11 +3,11 @@
    ========================================================================== */
 
 :root {
-    --bg-dark: #0f172a; /* Lebih gelap dan kebiruan */
-    --bg-medium: #1e293b;
-    --bg-light: #334155;
-    --primary-color: #a78bfa; /* Sedikit lebih lembut */
-    --primary-hover: #8b5cf6;
+    --bg-dark: black; /* Lebih gelap dan kebiruan */
+    --bg-medium: black;
+    --bg-light: black;
+    --primary-color: white; /* Sedikit lebih lembut */
+    --primary-hover: blue;
     --text-light: #e2e8f0;
     --text-dark: #94a3b8;
     --green: #4ade80;
@@ -524,9 +524,9 @@ tbody tr:last-child td {
     display: flex;
     flex-direction: column;
     height: 95vh; /* Tinggi lebih besar */
-    max-height: 700px; /* Max tinggi lebih besar */
+    max-height: 600px; /* Max tinggi lebih besar */
     background-color: var(--bg-medium);
-    border-radius: 55px;
+    border-radius: 25px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Bayangan lebih kuat */
     overflow: hidden; /* Penting untuk comment box */
 }
@@ -537,7 +537,7 @@ tbody tr:last-child td {
     display: flex;
     flex-direction: column; /* For natural message flow */
     gap: 0.75rem; /* Jarak antar pesan */
-    background-color: var(--bg-dark); /* Latar belakang comment box */
+    background-color: grey; /* Latar belakang comment box */
     border-bottom: 1px solid var(--border-color);
 }
 /* Custom Scrollbar for comment-box */
