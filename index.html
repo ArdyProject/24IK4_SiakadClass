@@ -1,4 +1,4 @@
- <!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!!! -->
+<!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!!! -->
         <!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!!! -->
             <!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!!-->
                 <!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!!-->
@@ -821,6 +821,30 @@
             background-color: var(--text-light);
             color: white;
         }
+        
+        /* Notification Banner */
+        #notification-banner {
+            display: none;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+        #enable-notifications-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-left: 1rem;
+            font-weight: bold;
+        }
 
 
         /* Responsive Design */
@@ -953,19 +977,19 @@
         }
         
         .downloadbtn {
-  background-color: darkblue;
-  color: #fff;
-  padding: 20px 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  align-content: center;
-}
+          background-color: darkblue;
+          color: #fff;
+          padding: 20px 5px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: center;
+          align-content: center;
+        }
 
-.downloadbtn:hover {
-  background-color: black;
-}
+        .downloadbtn:hover {
+          background-color: black;
+        }
 
     </style>
 </head>
@@ -1295,6 +1319,12 @@
         </div>
     </div>
 
+    <!-- Notification Banner -->
+    <div id="notification-banner">
+        <span>Aktifkan notifikasi untuk mendapatkan info terbaru!</span>
+        <button id="enable-notifications-btn">Aktifkan</button>
+    </div>
+
 
     <!-- Firebase SDK - Updated to modern modular version -->
     <script type="module">
@@ -1323,6 +1353,8 @@
         let currentEditId = null;
         let currentEditType = null;
         window.mahasiswaData = {};
+        let isInitialInfoLoad = true;
+        let knownInfoIds = new Set();
 
         // --- DOM ELEMENTS ---
         const navToggle = document.getElementById("navToggle");
@@ -1333,6 +1365,8 @@
         const adminBtn = document.getElementById("adminBtn");
         const adminModal = document.getElementById("adminModal");
         const adminDashboard = document.getElementById("adminDashboard");
+        const notificationBanner = document.getElementById("notification-banner");
+        const enableNotificationsBtn = document.getElementById("enable-notifications-btn");
 
         // --- INITIALIZATION ---
         document.addEventListener("DOMContentLoaded", () => {
@@ -1341,6 +1375,7 @@
             loadTheme();
             incrementVisitorCount();
             loadAllData();
+            initializeNotifications();
         });
 
         function initializeAppUI() {
@@ -1368,6 +1403,7 @@
             document.getElementById("searchMahasiswa").addEventListener("input", filterMahasiswa);
             document.getElementById("filterSemester").addEventListener("change", filterMahasiswa);
             document.getElementById("sortMahasiswa").addEventListener("change", filterMahasiswa);
+            enableNotificationsBtn.addEventListener("click", requestNotificationPermission);
             setupTabSwitching(".tab-btn", ".tab-content");
             setupTabSwitching(".admin-tab-btn", ".admin-tab-content");
             setupModalEvents();
@@ -1488,15 +1524,70 @@
             modal.style.display = "flex";
         }
 
+        // --- NOTIFICATION FUNCTIONS ---
+        function initializeNotifications() {
+            if (!("Notification" in window)) {
+                console.log("Browser ini tidak mendukung notifikasi desktop.");
+                return;
+            }
+            if (Notification.permission === 'default') {
+                notificationBanner.style.display = 'block';
+            }
+        }
+
+        function requestNotificationPermission() {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    notificationBanner.style.display = 'none';
+                    showLocalNotification("Notifikasi Diaktifkan!", {
+                        body: "Anda akan menerima info & pengumuman terbaru.",
+                        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/UHN_logo.png/613px-UHN_logo.png"
+                    });
+                }
+            });
+        }
+
+        function showLocalNotification(title, options) {
+            if (Notification.permission === 'granted') {
+                new Notification(title, options);
+            }
+        }
+
         // --- DATA LOADING & DISPLAY ---
         function loadAllData() {
             loadData("jadwal", displayJadwal, displayAdminJadwal);
             loadData("tugas", displayTugas, displayAdminTugas);
-            loadData("info", displayInfo, displayAdminInfo);
+            
+            // Handler for "info" with notifications
+            const infoRef = ref(database, "info");
+            onValue(infoRef, (snapshot) => {
+                const data = snapshot.val() || {};
+                displayInfo(data);
+                if (isAdmin) {
+                    displayAdminInfo(data);
+                }
+
+                const currentInfoIds = new Set(Object.keys(data));
+                if (isInitialInfoLoad) {
+                    knownInfoIds = currentInfoIds;
+                    isInitialInfoLoad = false;
+                } else {
+                    const newIds = [...currentInfoIds].filter(id => !knownInfoIds.has(id));
+                    newIds.forEach(id => {
+                        const newInfo = data[id];
+                        showLocalNotification(`Info Baru: ${newInfo.judul}`, {
+                            body: newInfo.deskripsi.substring(0, 100) + (newInfo.deskripsi.length > 100 ? '...' : ''),
+                            icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/UHN_logo.png/613px-UHN_logo.png'
+                        });
+                    });
+                    knownInfoIds = currentInfoIds;
+                }
+                updateStats();
+            });
+
             loadData("galeri", displayGaleri, displayAdminGaleri);
             loadData("komentar", displayKomentar, displayAdminKomentar);
-            loadMahasiswa(); // Special handling
-            updateStats();
+            loadMahasiswa();
         }
 
         function loadData(path, displayFn, adminDisplayFn) {
@@ -1910,13 +2001,14 @@
                 showCustomAlert("Komentar berhasil dikirim!");
                 document.getElementById("commentForm").reset();
             } catch (error) {
-                showCustomAlert("Gagal mengirim komentar: " + error.message);
+                // Log error to console for debugging instead of showing alert
+                console.error("Gagal mengirim komentar:", error);
             }
         }
 
         // --- STATS & UTILITIES ---
         async function updateStats() {
-            const paths = ["jadwal", "tugas", "komentar", "galeri"];
+            const paths = ["jadwal", "tugas", "komentar", "galeri", "info"];
             const counts = await Promise.all(paths.map(async p => {
                 const snapshot = await get(ref(database, p));
                 return snapshot.exists() ? Object.keys(snapshot.val()).length : 0;
@@ -1959,3 +2051,4 @@
                     <!-- Sertakan kredit kami jika anda ingin menggunakan source code ini!! -->
                     
                         <!-- 24IK4 By Ardy Dev -->
+
