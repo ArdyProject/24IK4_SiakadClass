@@ -1,0 +1,89 @@
+        /* ==============================================
+        HERO SECTION
+        ==============================================
+        */
+        .hero {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color-dark), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #realTimeClock {
+            font-family: monospace;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.01rem 1rem;
+            border-radius: var(--border-radius-sm);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .visitor-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.01rem 1rem;
+            border-radius: 999px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-download-styled {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color-dark);
+            padding: 0.01rem 0.3rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 200;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download-styled:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-download-styled.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border: 3px solid rgba(0, 0, 0, 0.2);
+            border-top-color: var(--primary-color-dark);
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        
+        .btn-download-styled.loading span {
+            visibility: hidden;
+        }

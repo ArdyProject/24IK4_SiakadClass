@@ -1,0 +1,15 @@
+        /* ==============================================
+        FOOTER
+        ==============================================
+        */
+        .footer {
+            background: var(--bg-secondary);
+            color: var(--text-light)l;
+            padding: 0.01rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer p { margin-bottom: 1rem; }
+        .social-links a { color: var(--text-light); margin: 0 0.75rem; font-size: 1.7rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--primary-color); }

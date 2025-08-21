@@ -1,0 +1,13 @@
+        /* ==============================================
+        GRIDS (STATS, CARDS, GALLERY)
+        ==============================================
+        */
+        .stats-grid, .cards-grid, .mahasiswa-grid, .gallery-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .stats-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+        .cards-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+        .mahasiswa-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+        .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }

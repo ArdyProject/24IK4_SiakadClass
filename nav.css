@@ -1,0 +1,85 @@
+        /* ==============================================
+        HEADER & NAVIGATION
+        ==============================================
+        */
+        .header {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+            height: 80px;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-brand h1 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .nav-brand span {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .nav-toggle {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-color);
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            color: var(--text-light);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: background-color 1.3s, color 1.3s;
+            font-size: 1.25rem;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }

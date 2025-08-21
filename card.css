@@ -1,0 +1,33 @@
+        /* ==============================================
+        CARDS
+        ==============================================
+        */
+        .card, .stat-card, .mahasiswa-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover, .stat-card:hover, .mahasiswa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-card { text-align: center; padding: 2rem; }
+        .stat-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .stat-card h3 { font-size: 2.5rem; color: var(--text-color); margin-bottom: 0.5rem; font-weight: 700; }
+        .stat-card p { color: var(--text-light); }
+
+        .card { display: flex; flex-direction: column; }
+        .card h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.25rem; }
+        .card p { color: var(--text-light); margin-bottom: 1rem; flex-grow: 1; }
+        .card .deadline { color: var(--warning-color); font-weight: 600; font-size: 0.9rem; margin-top: auto; }
+
+        .mahasiswa-card { text-align: center; cursor: pointer; }
+        .mahasiswa-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid var(--primary-color); }
+        .mahasiswa-card h3 { color: var(--text-color); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .mahasiswa-card .nim { color: var(--text-light); font-size: 0.9rem; }
+        .mahasiswa-card .semester { background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; display: inline-block; margin-top: 1rem; font-weight: 500; }

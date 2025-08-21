@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24IK4 – University of HKBP Nommensen Pematangsiantar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/body.css">
+    <link rel="stylesheet" href="/root.css">
+    <link rel="stylesheet" href="/preloader.css">
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/btn.css">
+    <link rel="stylesheet" href="/modal.css">
+    <link rel="stylesheet" href="/responsif.css">
+    <link rel="stylesheet" href="/admin.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/grid.css">
+    <link rel="stylesheet" href="/card.css">
+    <link rel="stylesheet" href="/table.css">
+    <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/tabs.css">
+    <link rel="stylesheet" href="/galery.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>24IK4</h1>
+                <span>University of HKBP Nommensen Pematangsiantar</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+                    <li><a href="#jadwal" class="nav-link">Jadwal Kuliah</a></li>
+                    <li><a href="#tugas" class="nav-link">Tugas & Info</a></li>
+                    <li><a href="#galeri" class="nav-link">Galeri</a></li>
+                    <li><a href="#masukan" class="nav-link">Masukan</a></li>
+                    <li><a href="#komentar" class="nav-link">Komentar</a></li>
+                    <li><a href="#profil" class="nav-link">Profil Mahasiswa</a></li>
+                    <li><button class="admin-btn" id="adminBtn">Admin</button></li>
+                    <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Beranda Section -->
+        <section id="beranda" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h2>DASHBOARD KELAS 24IK4</h2>
+                    <p>University of HKBP Nommensen Pematangsiantar. Website ini dibangun untuk kebersamaan dan relasi kita. Semangat!</p>
+                    <div id="realTimeClock"></div>
+                    <div class="visitor-counter">
+                        <i class="fas fa-eye"></i>
+                        <span>Pengunjung: <span id="visitorCount">0</span></span>
+                    </div>
+                    <br>
+                    <a href="https://guthib.com/" class="btn-download-styled" id="downloadApkBtn"><span><i class="fas fa-download"></i> Download Aplikasi</span></a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="totalMahasiswa">0</h3>
+                        <p>Total Mahasiswa</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3 id="totalJadwal">0</h3>
+                        <p>Mata Kuliah</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3 id="totalTugas">0</h3>
+                        <p>Tugas Aktif</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-comments"></i>
+                        <h3 id="totalKomentar">0</h3>
+                        <p>Total Komentar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jadwal Section -->
+        <section id="jadwal" class="section">
+            <div class="container">
+                <div class="section-header"><h2>Jadwal Kuliah</h2></div>
+                <div class="table-container">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Jam</th>
+                                <th>Mata Kuliah</th>
+                                <th>Dosen</th>
+                                <th>Ruangan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jadwalTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tugas & Info Section -->
+        <section id="tugas" class="section">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="tugas-content">Tugas</button>
+                    <button class="tab-btn" data-tab="info-content">Info & Pengumuman</button>
+                </div>
+                
+                <div id="tugas-content" class="tab-content active">
+                    <div class="section-header"><h2>Daftar Tugas</h2></div>
+                    <div id="tugasList" class="cards-grid">
+                    </div>
+                </div>
+                
+                <div id="info-content" class="tab-content">
+                    <div class="section-header"><h2>Info & Pengumuman</h2></div>
+                    <div id="infoList" class="cards-grid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Section -->
+        <section id="galeri" class="section">
+            <div class="container">
+                <div class="section-header"><h2>Galeri & Momen</h2></div>
+                <div id="galeriGrid" class="gallery-grid">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Masukan & Rekomendasi Section -->
+        <section id="masukan" class="section">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="masukan-content">Kirim Masukan</button>
+                    <button class="tab-btn" data-tab="rekomendasi-content">Rekomendasi Foto</button>
+                </div>
+                
+                <div id="masukan-content" class="tab-content active">
+                    <div class="section-header"><h2>Form Masukan untuk Admin</h2></div>
+                    <form id="feedbackForm" class="styled-form">
+                        <input type="text" id="feedbackName" placeholder="Nama Anda" required>
+                        <textarea id="feedbackMessage" placeholder="Tulis masukan, saran, atau kritik..." required rows="5"></textarea>
+                        <button type="submit">Kirim Masukan</button>
+                    </form>
+                </div>
+                
+                <div id="rekomendasi-content" class="tab-content">
+                    <div class="section-header"><h2>Rekomendasikan Foto untuk Galeri</h2></div>
+                    <form id="recommendationForm" class="styled-form">
+                        <input type="text" id="recommendationName" placeholder="Nama Anda" required>
+                        <input type="url" id="recommendationUrl" placeholder="URL Gambar (contoh: https://i.postimg.cc/...)" required>
+                        <textarea id="recommendationCaption" placeholder="Deskripsi atau caption untuk foto ini" required></textarea>
+                        <button type="submit">Kirim Rekomendasi</button>
+                    </form>
+                    
+                    <div class="section-header" style="margin-top: 2rem;"><h3>Menunggu Persetujuan</h3></div>
+                    <div id="pendingRecommendationsList" class="cards-grid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Komentar Section -->
+        <section id="komentar" class="section">
+            <div class="container">
+                <div class="section-header"><h2>Komentar</h2></div>
+                <form id="commentForm" class="styled-form">
+                    <input type="text" id="commentName" placeholder="Nama Anda" required>
+                    <textarea id="commentMessage" placeholder="Tulis komentar..." required></textarea>
+                    <button type="submit">Kirim Komentar</button>
+                </form>
+                <div id="commentsList" class="comments-list">
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil Mahasiswa Section -->
+        <section id="profil" class="section">
+            <div class="container">
+                <div class="section-header"><h2>Profil Mahasiswa</h2></div>
+                <div class="search-filter">
+                    <input type="text" id="searchMahasiswa" placeholder="Cari nama atau NIM...">
+                    <select id="filterSemester">
+                        <option value="">Semua Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                    </select>
+                    <select id="sortMahasiswa">
+                        <option value="nama">Urutkan: Nama (A-Z)</option>
+                        <option value="nim">Urutkan: NIM</option>
+                    </select>
+                </div>
+                <div id="mahasiswaGrid" class="mahasiswa-grid">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 24IK4, University of HKBP Nommensen Pematangsiantar | 2025 By KingProject</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/cucuunommensen_?igsh=cTl0MHBlbXN4bzZv" target="_blank" title="Instagram Kelas"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/kingproject_ar?igsh=YXo1aDI5czBzN3c=" target="_blank" title="Instagram KingProject"><i class="fab fa-instagram-square"></i></a>
+            <a href="https://github.com/ArdyProject" target="_blank" title="GitHub KingProject"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login Admin</h2>
+            <form id="adminLoginForm" class="styled-form" style="box-shadow: none; padding: 0; margin-top: 2rem;">
+                <input type="password" id="adminPassword" placeholder="Masukkan Password Admin" required>
+                <button type="submit">Login</button>
+            </form>
+            <div id="adminError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Full Screen) -->
+    <div id="adminDashboard" class="admin-dashboard">
+        <div class="container">
+            <div class="admin-header">
+                <h2>Dashboard Admin</h2>
+                <button id="logoutAdmin">Logout</button>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="admin-jadwal">Jadwal</button>
+                <button class="admin-tab-btn" data-tab="admin-tugas">Tugas</button>
+                <button class="admin-tab-btn" data-tab="admin-info">Info</button>
+                <button class="admin-tab-btn" data-tab="admin-galeri">Galeri</button>
+                <button class="admin-tab-btn" data-tab="admin-mahasiswa">Mahasiswa</button>
+                <button class="admin-tab-btn" data-tab="admin-komentar">Komentar</button>
+                <button class="admin-tab-btn" data-tab="admin-masukan">Masukan</button>
+                <button class="admin-tab-btn" data-tab="admin-rekomendasi">Rekomendasi</button>
+                <button class="admin-tab-btn" data-tab="admin-stats">Statistik</button>
+            </div>
+
+            <!-- Admin Content Tabs -->
+            <div id="admin-jadwal" class="admin-tab-content active">
+                <h3>Kelola Jadwal Kuliah</h3>
+                <form id="jadwalForm" class="admin-form">
+                    <input type="hidden" id="jadwalId">
+                    <input type="text" id="jadwalHari" placeholder="Hari" required>
+                    <input type="text" id="jadwalJam" placeholder="Jam (contoh: 08:00 - 09:40)" required>
+                    <input type="text" id="jadwalMatkul" placeholder="Mata Kuliah" required>
+                    <input type="text" id="jadwalDosen" placeholder="Dosen" required>
+                    <input type="text" id="jadwalRuangan" placeholder="Ruangan" required>
+                    <button type="submit">Simpan Jadwal</button>
+                    <button type="button" id="cancelJadwal">Batal</button>
+                </form>
+                <div id="adminJadwalList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-tugas" class="admin-tab-content">
+                <h3>Kelola Tugas</h3>
+                <form id="tugasForm" class="admin-form">
+                    <input type="hidden" id="tugasId">
+                    <input type="text" id="tugasJudul" placeholder="Judul Tugas" required>
+                    <textarea id="tugasDeskripsi" placeholder="Deskripsi Tugas" required></textarea>
+                    <input type="date" id="tugasDeadline" required>
+                    <button type="submit">Simpan Tugas</button>
+                    <button type="button" id="cancelTugas">Batal</button>
+                </form>
+                <div id="adminTugasList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-info" class="admin-tab-content">
+                <h3>Kelola Info & Pengumuman</h3>
+                <form id="infoForm" class="admin-form">
+                    <input type="hidden" id="infoId">
+                    <input type="text" id="infoJudul" placeholder="Judul Info" required>
+                    <textarea id="infoDeskripsi" placeholder="Deskripsi Info" required></textarea>
+                    <button type="submit">Simpan Info</button>
+                    <button type="button" id="cancelInfo">Batal</button>
+                </form>
+                <div id="adminInfoList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-galeri" class="admin-tab-content">
+                <h3>Kelola Galeri</h3>
+                <form id="galeriForm" class="admin-form">
+                    <input type="hidden" id="galeriId">
+                    <input type="url" id="galeriUrl" placeholder="URL Gambar (contoh: https://i.postimg.cc/...)" required>
+                    <input type="text" id="galeriCaption" placeholder="Caption" required>
+                    <button type="submit">Simpan Galeri</button>
+                    <button type="button" id="cancelGaleri">Batal</button>
+                </form>
+                <div id="adminGaleriList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-mahasiswa" class="admin-tab-content">
+                <h3>Kelola Profil Mahasiswa</h3>
+                <form id="mahasiswaForm" class="admin-form">
+                    <input type="hidden" id="mahasiswaId">
+                    <input type="text" id="mahasiswaNama" placeholder="Nama Lengkap" required>
+                    <input type="text" id="mahasiswaNim" placeholder="NIM" required>
+                    <input type="text" id="mahasiswaProdi" placeholder="Program Studi" required>
+                    <input type="number" id="mahasiswaSemester" placeholder="Semester" min="1" max="8" required>
+                    <input type="url" id="mahasiswaFoto" placeholder="URL Foto Profil (Postimages)" required>
+                    <input type="text" id="mahasiswaKontak" placeholder="Kontak (Email/WA)">
+                    <button type="submit">Simpan Mahasiswa</button>
+                    <button type="button" id="cancelMahasiswa">Batal</button>
+                </form>
+                <div id="adminMahasiswaList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-komentar" class="admin-tab-content">
+                <h3>Kelola Komentar</h3>
+                <div id="adminKomentarList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-masukan" class="admin-tab-content">
+                <h3>Masukan dari User</h3>
+                <div id="adminFeedbackList" class="admin-list"></div>
+            </div>
+
+            <div id="admin-rekomendasi" class="admin-tab-content">
+                <h3>Rekomendasi Foto dari User</h3>
+                <div id="adminRecommendationList" class="admin-list"></div>
+            </div>
+            
+            <div id="admin-stats" class="admin-tab-content">
+                <h3>Statistik</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-eye"></i>
+                        <h3 id="adminVisitorCount">0</h3>
+                        <p>Total Pengunjung</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-comments"></i>
+                        <h3 id="adminCommentCount">0</h3>
+                        <p>Total Komentar</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="adminStudentCount">0</h3>
+                        <p>Total Mahasiswa</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-images"></i>
+                        <h3 id="adminGalleryCount">0</h3>
+                        <p>Total Foto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content image-modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="https://placehold.co/600x400/cccccc/ffffff?text=Image" alt="Gallery Image">
+            <p id="modalCaption"></p>
+        </div>
+    </div>
+
+    <!-- Student Detail Modal -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="studentDetail"></div>
+        </div>
+    </div>
+
+    <!-- Custom Alert/Confirm Modal -->
+    <div id="customModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <p id="custom-modal-message"></p>
+            <div class="custom-modal-buttons">
+                <button id="custom-modal-cancel">Batal</button>
+                <button id="custom-modal-confirm">Ya</button>
+                <button id="custom-modal-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getDatabase, ref, onValue, get, set, push, remove, runTransaction, update } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBII99gJzf0VX8puBR9h5Z2Yucl5RCaZss",
+            authDomain: "ardyproject12.firebaseapp.com",
+            databaseURL: "https://ardyproject12-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ardyproject12",
+            storageBucket: "ardyproject12.appspot.com",
+            messagingSenderId: "656856932066",
+            appId: "1:656856932066:web:b43e2c507692ddbacdc8bb",
+            measurementId: "G-DZSGKDJ032",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // --- GLOBAL VARIABLES ---
+        let isAdmin = false;
+        window.mahasiswaData = {};
+
+        // --- DOM ELEMENTS ---
+        const navToggle = document.getElementById("navToggle");
+        const navMenu = document.getElementById("navMenu");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll(".section");
+        const themeToggle = document.getElementById("themeToggle");
+        const adminBtn = document.getElementById("adminBtn");
+        const adminModal = document.getElementById("adminModal");
+        const adminDashboard = document.getElementById("adminDashboard");
+        const preloader = document.getElementById('preloader');
+
+        // --- INITIALIZATION ---
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeAppUI();
+            setupEventListeners();
+            loadTheme();
+            incrementVisitorCount();
+            loadAllData();
+            startRealTimeClock();
+        });
+        
+        // Preloader logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 500); 
+        });
+
+
+        function initializeAppUI() {
+            showSection("beranda");
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute("href").substring(1);
+                    showSection(targetId);
+                    navLinks.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                    if (navMenu.classList.contains("active")) {
+                       navMenu.classList.remove("active");
+                       navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+        }
+
+        // --- EVENT LISTENERS ---
+        function setupEventListeners() {
+            navToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+                if (navMenu.classList.contains("active")) {
+                    navToggle.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+
+            themeToggle.addEventListener("click", toggleTheme);
+            adminBtn.addEventListener("click", () => adminModal.style.display = "flex");
+            document.getElementById("adminLoginForm").addEventListener("submit", handleAdminLogin);
+            document.getElementById("logoutAdmin").addEventListener("click", logoutAdmin);
+            document.getElementById("commentForm").addEventListener("submit", submitComment);
+            document.getElementById("feedbackForm").addEventListener("submit", submitFeedback);
+            document.getElementById("recommendationForm").addEventListener("submit", submitRecommendation);
+            document.getElementById("downloadApkBtn").addEventListener("click", handleDownloadClick);
+            document.getElementById("searchMahasiswa").addEventListener("input", filterMahasiswa);
+            document.getElementById("filterSemester").addEventListener("change", filterMahasiswa);
+            document.getElementById("sortMahasiswa").addEventListener("change", filterMahasiswa);
+            
+            setupTabSwitching(document.querySelector('#tugas .container'), '.tab-btn', '.tab-content');
+            setupTabSwitching(document.querySelector('#masukan .container'), '.tab-btn', '.tab-content');
+            setupTabSwitching(document.getElementById('adminDashboard'), '.admin-tab-btn', '.admin-tab-content');
+
+            setupModalEvents();
+            setupAdminForms();
+        }
+
+        // --- UI FUNCTIONS ---
+        function showSection(sectionId) {
+            sections.forEach(section => section.classList.remove("active"));
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) activeSection.classList.add("active");
+            window.scrollTo(0, 0);
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector("i");
+            icon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+        }
+        
+        function startRealTimeClock() {
+            const clockElement = document.getElementById('realTimeClock');
+            function updateClock() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                clockElement.textContent = now.toLocaleDateString('id-ID', options);
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+        
+        function handleDownloadClick(e) {
+            e.preventDefault();
+            const button = e.currentTarget;
+            const url = button.href;
+            
+            button.classList.add('loading');
+            
+            setTimeout(() => {
+                window.location.href = url;
+                button.classList.remove('loading');
+            }, 2000);
+        }
+        
+        function setupTabSwitching(parentElement, btnSelector, contentSelector) {
+            if (!parentElement) return;
+            const tabBtns = parentElement.querySelectorAll(btnSelector);
+            const tabContents = parentElement.querySelectorAll(contentSelector);
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    const targetContent = document.getElementById(btn.dataset.tab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // --- MODAL & ALERT FUNCTIONS ---
+        function setupModalEvents() {
+            const modals = document.querySelectorAll(".modal, .custom-modal");
+            modals.forEach(modal => {
+                modal.addEventListener("click", e => {
+                    if (e.target === modal || e.target.classList.contains('close')) {
+                        modal.style.display = "none";
+                    }
+                });
+            });
+        }
+        
+        function showCustomAlert(message) {
+            const modal = document.getElementById('customModal');
+            document.getElementById('custom-modal-message').textContent = message;
+            document.getElementById('custom-modal-ok').style.display = 'block';
+            document.getElementById('custom-modal-confirm').style.display = 'none';
+            document.getElementById('custom-modal-cancel').style.display = 'none';
+            modal.style.display = 'flex';
+
+            return new Promise(resolve => {
+                document.getElementById('custom-modal-ok').onclick = () => {
+                    modal.style.display = 'none';
+                    resolve();
+                };
+            });
+        }
+
+        function showCustomConfirm(message) {
+            const modal = document.getElementById('customModal');
+            document.getElementById('custom-modal-message').textContent = message;
+            document.getElementById('custom-modal-ok').style.display = 'none';
+            document.getElementById('custom-modal-confirm').style.display = 'block';
+            document.getElementById('custom-modal-cancel').style.display = 'block';
+            modal.style.display = 'flex';
+
+            return new Promise(resolve => {
+                document.getElementById('custom-modal-confirm').onclick = () => {
+                    modal.style.display = 'none';
+                    resolve(true);
+                };
+                document.getElementById('custom-modal-cancel').onclick = () => {
+                    modal.style.display = 'none';
+                    resolve(false);
+                };
+            });
+        }
+
+        function showImageModal(url, caption) {
+            const modal = document.getElementById("imageModal");
+            document.getElementById("modalImage").src = url;
+            document.getElementById("modalCaption").textContent = caption;
+            modal.style.display = "flex";
+        }
+
+        function showStudentModal(mahasiswa) {
+            const modal = document.getElementById("studentModal");
+            const studentDetail = document.getElementById("studentDetail");
+            studentDetail.innerHTML = `
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="${mahasiswa.foto}" alt="${mahasiswa.nama}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid var(--primary-color);">
+                    <h2 style="color: var(--primary-color); margin-top: 1rem; font-size: 1.5rem;">${mahasiswa.nama}</h2>
+                </div>
+                <div style="display: grid; gap: 1rem; text-align: left;">
+                    <p><strong>NIM:</strong> ${mahasiswa.nim}</p>
+                    <p><strong>Program Studi:</strong> ${mahasiswa.prodi}</p>
+                    <p><strong>Semester:</strong> ${mahasiswa.semester}</p>
+                    ${mahasiswa.kontak ? `<p><strong>Kontak:</strong> ${mahasiswa.kontak}</p>` : ""}
+                </div>
+            `;
+            modal.style.display = "flex";
+        }
+
+
+        // --- DATA LOADING & DISPLAY ---
+        function loadAllData() {
+            loadData("jadwal", displayJadwal, displayAdminJadwal);
+            loadData("tugas", displayTugas, displayAdminTugas);
+            loadData("info", displayInfo, displayAdminInfo);
+            loadData("galeri", displayGaleri, displayAdminGaleri);
+            loadData("komentar", displayKomentar, displayAdminKomentar);
+            loadData("feedback", null, displayAdminFeedback);
+            loadData("photoRecommendations", displayPendingRecommendations, displayAdminRecommendations);
+            loadMahasiswa();
+        }
+
+        function loadData(path, displayFn, adminDisplayFn) {
+            const dataRef = ref(database, path);
+            onValue(dataRef, (snapshot) => {
+                const data = snapshot.val() || {};
+                if (displayFn) displayFn(data);
+                if (isAdmin && adminDisplayFn) {
+                    adminDisplayFn(data);
+                }
+                updateStats();
+            });
+        }
+
+        function incrementVisitorCount() {
+            const visitorRef = ref(database, "visitorCount");
+            runTransaction(visitorRef, (currentCount) => (currentCount || 0) + 1);
+            onValue(visitorRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                document.getElementById("visitorCount").textContent = count;
+                if (document.getElementById("adminVisitorCount")) {
+                    document.getElementById("adminVisitorCount").textContent = count;
+                }
+            });
+        }
+
+        // Display Functions (Public View)
+        function displayJadwal(data) {
+            const tableBody = document.getElementById("jadwalTable");
+            tableBody.innerHTML = "";
+            Object.values(data).forEach(jadwal => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `<td>${jadwal.hari}</td><td>${jadwal.jam}</td><td>${jadwal.matkul}</td><td>${jadwal.dosen}</td><td>${jadwal.ruangan}</td>`;
+            });
+        }
+
+        function displayTugas(data) {
+            const list = document.getElementById("tugasList");
+            list.innerHTML = "";
+            Object.values(data).sort((a,b) => new Date(a.deadline) - new Date(b.deadline)).forEach(tugas => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `<h3>${tugas.judul}</h3><p>${tugas.deskripsi}</p><div class="deadline">Deadline: ${formatDate(tugas.deadline)}</div>`;
+                list.appendChild(card);
+            });
+        }
+
+        function displayInfo(data) {
+            const list = document.getElementById("infoList");
+            list.innerHTML = "";
+            Object.values(data).forEach(info => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `<h3>${info.judul}</h3><p>${info.deskripsi}</p>`;
+                list.appendChild(card);
+            });
+        }
+
+        function displayGaleri(data) {
+            const grid = document.getElementById("galeriGrid");
+            grid.innerHTML = "";
+            Object.values(data).forEach(galeri => {
+                const item = document.createElement("div");
+                item.className = "gallery-item";
+                item.innerHTML = `<img src="${galeri.url}" alt="${galeri.caption}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cccccc/ffffff?text=Error';"><div class="caption">${galeri.caption}</div>`;
+                item.addEventListener("click", () => showImageModal(galeri.url, galeri.caption));
+                grid.appendChild(item);
+            });
+        }
+
+        function displayKomentar(data) {
+            const list = document.getElementById("commentsList");
+            list.innerHTML = "";
+            const comments = Object.values(data).sort((a, b) => new Date(b.waktu) - new Date(a.waktu));
+            comments.forEach(comment => {
+                const item = document.createElement("div");
+                item.className = "comment-item";
+                item.innerHTML = `<div class="comment-header"><span class="comment-name">${comment.nama}</span><span class="comment-time">${formatDateTime(comment.waktu)}</span></div><div class="comment-message">${comment.pesan}</div>`;
+                list.appendChild(item);
+            });
+        }
+        
+        function displayPendingRecommendations(data) {
+            const list = document.getElementById("pendingRecommendationsList");
+            list.innerHTML = "";
+            const pending = Object.values(data).filter(item => item.status === 'pending');
+            if (pending.length === 0) {
+                list.innerHTML = "<p>Belum ada rekomendasi baru saat ini.</p>";
+                return;
+            }
+            pending.forEach(rec => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <img src="${rec.url}" style="width:100%; height:150px; object-fit:cover; border-radius: var(--border-radius-sm); margin-bottom: 1rem;" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cccccc/ffffff?text=Error';">
+                    <h3>${rec.caption}</h3>
+                    <p>Direkomendasikan oleh: <strong>${rec.nama}</strong></p>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function loadMahasiswa() {
+            const mahasiswaRef = ref(database, "mahasiswa");
+            onValue(mahasiswaRef, (snapshot) => {
+                window.mahasiswaData = snapshot.val() || {};
+                filterMahasiswa(); // Display and filter initially
+                if (isAdmin) {
+                    displayAdminMahasiswa(window.mahasiswaData);
+                }
+                updateStats();
+            });
+        }
+
+        function displayMahasiswa(data) {
+            const grid = document.getElementById("mahasiswaGrid");
+            grid.innerHTML = "";
+            Object.values(data).forEach(mahasiswa => {
+                const card = document.createElement("div");
+                card.className = "mahasiswa-card";
+                card.innerHTML = `<img src="${mahasiswa.foto}" alt="${mahasiswa.nama}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/100x100/cccccc/ffffff?text=Error';"><h3>${mahasiswa.nama}</h3><div class="nim">${mahasiswa.nim}</div><div class="semester">Semester ${mahasiswa.semester}</div>`;
+                card.addEventListener("click", () => showStudentModal(mahasiswa));
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMahasiswa() {
+            const searchTerm = document.getElementById("searchMahasiswa").value.toLowerCase();
+            const semesterFilter = document.getElementById("filterSemester").value;
+            const sortBy = document.getElementById("sortMahasiswa").value;
+
+            let filtered = Object.values(window.mahasiswaData).filter(m => {
+                const matchesSearch = m.nama.toLowerCase().includes(searchTerm) || m.nim.toLowerCase().includes(searchTerm);
+                const matchesSemester = !semesterFilter || m.semester.toString() === semesterFilter;
+                return matchesSearch && matchesSemester;
+            });
+
+            filtered.sort((a, b) => {
+                if (sortBy === "nama") return a.nama.localeCompare(b.nama);
+                if (sortBy === "nim") return a.nim.localeCompare(b.nim);
+                return 0;
+            });
+
+            displayMahasiswa(filtered);
+        }
+
+        // --- ADMIN FUNCTIONS ---
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const password = document.getElementById("adminPassword").value;
+            const errorDiv = document.getElementById("adminError");
+            if (password === "24IK4Admin_Ardy/Anju/&More...") {
+                isAdmin = true;
+                adminModal.style.display = "none";
+                adminDashboard.style.display = "block";
+                document.getElementById("adminPassword").value = "";
+                errorDiv.textContent = "";
+                loadAllData(); // Reload data for admin view
+            } else {
+                errorDiv.textContent = "Password salah!";
+            }
+        }
+
+        function logoutAdmin() {
+            isAdmin = false;
+            adminDashboard.style.display = "none";
+            clearAllForms();
+        }
+        
+        function displayAdminJadwal(data) {
+            displayAdminItems("adminJadwalList", "jadwal", data, item => `<strong>${item.matkul}</strong><br><small>${item.hari}, ${item.jam} | ${item.dosen} | ${item.ruangan}</small>`);
+        }
+
+        function displayAdminTugas(data) {
+            displayAdminItems("adminTugasList", "tugas", data, item => `<strong>${item.judul}</strong><br><small style="color: var(--warning-color);">Deadline: ${formatDate(item.deadline)}</small>`);
+        }
+        
+        function displayAdminInfo(data) {
+             displayAdminItems("adminInfoList", "info", data, item => `<strong>${item.judul}</strong><br><small>${item.deskripsi.substring(0, 50)}...</small>`);
+        }
+        
+        function displayAdminGaleri(data) {
+             displayAdminItems("adminGaleriList", "galeri", data, item => `
+                <img src="${item.url}" alt="${item.caption}" style="width: 50px; height: 50px; object-fit: cover; border-radius: var(--border-radius-sm);" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/ffffff?text=X';">
+                <div><strong>${item.caption}</strong></div>`);
+        }
+
+        function displayAdminKomentar(data) {
+            const list = document.getElementById("adminKomentarList");
+            list.innerHTML = "";
+            const comments = Object.entries(data).sort(([,a], [,b]) => new Date(b.waktu) - new Date(a.waktu));
+            comments.forEach(([key, comment]) => {
+                const item = createAdminItem(key, 'komentar', `<strong>${comment.nama}:</strong> "${comment.pesan}"<br><small>${formatDateTime(comment.waktu)}</small>`, false);
+                list.appendChild(item);
+            });
+        }
+        
+        function displayAdminFeedback(data) {
+            const list = document.getElementById("adminFeedbackList");
+            list.innerHTML = "";
+            const feedbacks = Object.entries(data).sort(([,a], [,b]) => new Date(b.waktu) - new Date(a.waktu));
+            feedbacks.forEach(([key, feedback]) => {
+                const item = createAdminItem(key, 'feedback', `<strong>${feedback.nama}:</strong> "${feedback.pesan}"<br><small>${formatDateTime(feedback.waktu)}</small>`, false);
+                list.appendChild(item);
+            });
+        }
+        
+        function displayAdminRecommendations(data) {
+            const list = document.getElementById("adminRecommendationList");
+            list.innerHTML = "";
+            const recommendations = Object.entries(data).sort(([,a], [,b]) => (a.status === 'pending' ? -1 : 1) - (b.status === 'pending' ? -1 : 1) || new Date(b.waktu) - new Date(a.waktu));
+            
+            recommendations.forEach(([key, rec]) => {
+                const content = `
+                    <img src="${rec.url}" alt="${rec.caption}" style="width: 50px; height: 50px; object-fit: cover; border-radius: var(--border-radius-sm);" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/ffffff?text=X';">
+                    <div>
+                        <strong>${rec.caption}</strong><br>
+                        <small>Oleh: ${rec.nama} | Status: <span style="font-weight:bold; color:${rec.status === 'pending' ? 'var(--warning-color)' : 'var(--success-color)'}">${rec.status}</span></small>
+                    </div>`;
+                
+                const item = document.createElement("div");
+                item.className = "admin-item";
+                item.innerHTML = `<div class="admin-item-content">${content}</div>`;
+                
+                const actionsDiv = document.createElement("div");
+                actionsDiv.className = "admin-item-actions";
+                
+                if (rec.status === 'pending') {
+                    const approveBtn = document.createElement("button");
+                    approveBtn.className = "approve-btn";
+                    approveBtn.textContent = "Setujui";
+                    approveBtn.onclick = () => approveRecommendation(key, rec);
+                    
+                    const declineBtn = document.createElement("button");
+                    declineBtn.className = "decline-btn";
+                    declineBtn.textContent = "Tolak";
+                    declineBtn.onclick = () => declineRecommendation(key);
+                    
+                    actionsDiv.append(approveBtn, declineBtn);
+                } else {
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.className = "delete-btn";
+                    deleteBtn.textContent = "Hapus";
+                    deleteBtn.onclick = () => deleteItem(key, 'photoRecommendations');
+                    actionsDiv.appendChild(deleteBtn);
+                }
+                
+                item.appendChild(actionsDiv);
+                list.appendChild(item);
+            });
+        }
+
+        function displayAdminMahasiswa(data) {
+             displayAdminItems("adminMahasiswaList", "mahasiswa", data, item => `
+                <img src="${item.foto}" alt="${item.nama}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/ffffff?text=X';">
+                <div><strong>${item.nama}</strong> (${item.nim})<br><small>${item.prodi} - Sem ${item.semester}</small></div>`);
+        }
+        
+        function displayAdminItems(listId, type, data, contentFn) {
+            const list = document.getElementById(listId);
+            list.innerHTML = "";
+            Object.entries(data).forEach(([key, itemData]) => {
+                const item = createAdminItem(key, type, contentFn(itemData));
+                list.appendChild(item);
+            });
+        }
+
+        function createAdminItem(id, type, contentHTML, showEdit = true) {
+            const item = document.createElement("div");
+            item.className = "admin-item";
+            item.innerHTML = `<div class="admin-item-content">${contentHTML}</div>`;
+
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "admin-item-actions";
+
+            if (showEdit) {
+                const editBtn = document.createElement("button");
+                editBtn.className = "edit-btn";
+                editBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+                editBtn.addEventListener("click", () => editItem(id, type));
+                actionsDiv.appendChild(editBtn);
+            }
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.className = "delete-btn";
+            deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteBtn.addEventListener("click", () => deleteItem(id, type));
+            
+            actionsDiv.appendChild(deleteBtn);
+            item.appendChild(actionsDiv);
+            return item;
+        }
+
+        async function editItem(id, type) {
+            const itemRef = ref(database, `${type}/${id}`);
+            const snapshot = await get(itemRef);
+            if (snapshot.exists()) {
+                fillForm(type, snapshot.val(), id);
+                document.getElementById(`${type}Form`).scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        async function deleteItem(id, type) {
+            const confirmed = await showCustomConfirm(`Anda yakin ingin menghapus item ini dari ${type}?`);
+            if (confirmed) {
+                try {
+                    await remove(ref(database, `${type}/${id}`));
+                    showCustomAlert("Item berhasil dihapus!");
+                } catch (error) {
+                    showCustomAlert("Gagal menghapus item: " + error.message);
+                }
+            }
+        }
+        
+        async function approveRecommendation(id, recData) {
+            const confirmed = await showCustomConfirm("Setujui dan tambahkan ke galeri?");
+            if (confirmed) {
+                const newGaleriItem = {
+                    url: recData.url,
+                    caption: `${recData.caption} (Oleh: ${recData.nama})`
+                };
+                
+                try {
+                    await push(ref(database, 'galeri'), newGaleriItem);
+                    await update(ref(database), {[`/photoRecommendations/${id}/status`]: 'approved'});
+                    showCustomAlert("Rekomendasi disetujui!");
+                } catch (error) {
+                    showCustomAlert("Gagal menyetujui: " + error.message);
+                }
+            }
+        }
+
+        async function declineRecommendation(id) {
+            const confirmed = await showCustomConfirm("Tolak rekomendasi ini?");
+            if (confirmed) {
+                try {
+                    await update(ref(database), {[`/photoRecommendations/${id}/status`]: 'declined'});
+                    showCustomAlert("Rekomendasi ditolak.");
+                } catch (error) {
+                    showCustomAlert("Gagal menolak: " + error.message);
+                }
+            }
+        }
+
+        // --- FORM HANDLING ---
+        function setupAdminForms() {
+            const forms = [
+                { id: "jadwalForm", type: "jadwal", saveFn: saveJadwal, cancelId: "cancelJadwal" },
+                { id: "tugasForm", type: "tugas", saveFn: saveTugas, cancelId: "cancelTugas" },
+                { id: "infoForm", type: "info", saveFn: saveInfo, cancelId: "cancelInfo" },
+                { id: "galeriForm", type: "galeri", saveFn: saveGaleri, cancelId: "cancelGaleri" },
+                { id: "mahasiswaForm", type: "mahasiswa", saveFn: saveMahasiswa, cancelId: "cancelMahasiswa" }
+            ];
+            forms.forEach(f => {
+                document.getElementById(f.id).addEventListener("submit", (e) => { e.preventDefault(); f.saveFn(); });
+                document.getElementById(f.cancelId).addEventListener("click", () => clearForm(f.type));
+            });
+        }
+
+        function fillForm(type, data, id) {
+            const formMap = {
+                jadwal: () => {
+                    document.getElementById("jadwalId").value = id;
+                    document.getElementById("jadwalHari").value = data.hari;
+                    document.getElementById("jadwalJam").value = data.jam;
+                    document.getElementById("jadwalMatkul").value = data.matkul;
+                    document.getElementById("jadwalDosen").value = data.dosen;
+                    document.getElementById("jadwalRuangan").value = data.ruangan;
+                },
+                tugas: () => {
+                    document.getElementById("tugasId").value = id;
+                    document.getElementById("tugasJudul").value = data.judul;
+                    document.getElementById("tugasDeskripsi").value = data.deskripsi;
+                    document.getElementById("tugasDeadline").value = data.deadline;
+                },
+                info: () => {
+                    document.getElementById("infoId").value = id;
+                    document.getElementById("infoJudul").value = data.judul;
+                    document.getElementById("infoDeskripsi").value = data.deskripsi;
+                },
+                galeri: () => {
+                    document.getElementById("galeriId").value = id;
+                    document.getElementById("galeriUrl").value = data.url;
+                    document.getElementById("galeriCaption").value = data.caption;
+                },
+                mahasiswa: () => {
+                    document.getElementById("mahasiswaId").value = id;
+                    document.getElementById("mahasiswaNama").value = data.nama;
+                    document.getElementById("mahasiswaNim").value = data.nim;
+                    document.getElementById("mahasiswaProdi").value = data.prodi;
+                    document.getElementById("mahasiswaSemester").value = data.semester;
+                    document.getElementById("mahasiswaFoto").value = data.foto;
+                    document.getElementById("mahasiswaKontak").value = data.kontak || "";
+                }
+            };
+            if (formMap[type]) formMap[type]();
+        }
+
+        function clearForm(type) {
+            document.getElementById(`${type}Form`).reset();
+            const idField = document.getElementById(`${type}Id`);
+            if (idField) idField.value = "";
+        }
+
+        function clearAllForms() {
+            ["jadwal", "tugas", "info", "galeri", "mahasiswa"].forEach(clearForm);
+        }
+
+        // --- SAVE FUNCTIONS ---
+        async function saveData(type, id, data) {
+            const itemRef = id ? ref(database, `${type}/${id}`) : push(ref(database, type));
+            try {
+                await set(itemRef, data);
+                showCustomAlert(`Data ${type} berhasil ${id ? 'diupdate' : 'disimpan'}!`);
+                clearForm(type);
+            } catch (error) {
+                showCustomAlert(`Gagal menyimpan data: ${error.message}`);
+            }
+        }
+
+        function saveJadwal() {
+            const id = document.getElementById("jadwalId").value;
+            const data = {
+                hari: document.getElementById("jadwalHari").value,
+                jam: document.getElementById("jadwalJam").value,
+                matkul: document.getElementById("jadwalMatkul").value,
+                dosen: document.getElementById("jadwalDosen").value,
+                ruangan: document.getElementById("jadwalRuangan").value,
+            };
+            saveData("jadwal", id, data);
+        }
+
+        function saveTugas() {
+            const id = document.getElementById("tugasId").value;
+            const data = {
+                judul: document.getElementById("tugasJudul").value,
+                deskripsi: document.getElementById("tugasDeskripsi").value,
+                deadline: document.getElementById("tugasDeadline").value,
+            };
+            saveData("tugas", id, data);
+        }
+        
+        function saveInfo() {
+            const id = document.getElementById("infoId").value;
+            const data = {
+                judul: document.getElementById("infoJudul").value,
+                deskripsi: document.getElementById("infoDeskripsi").value,
+            };
+            saveData("info", id, data);
+        }
+        
+        function saveGaleri() {
+            const id = document.getElementById("galeriId").value;
+            const data = {
+                url: document.getElementById("galeriUrl").value,
+                caption: document.getElementById("galeriCaption").value,
+            };
+            saveData("galeri", id, data);
+        }
+        
+        function saveMahasiswa() {
+            const id = document.getElementById("mahasiswaId").value;
+            const data = {
+                nama: document.getElementById("mahasiswaNama").value,
+                nim: document.getElementById("mahasiswaNim").value,
+                prodi: document.getElementById("mahasiswaProdi").value,
+                semester: Number(document.getElementById("mahasiswaSemester").value),
+                foto: document.getElementById("mahasiswaFoto").value,
+                kontak: document.getElementById("mahasiswaKontak").value,
+            };
+            saveData("mahasiswa", id, data);
+        }
+
+        async function submitComment(e) {
+            e.preventDefault();
+            const name = document.getElementById("commentName").value.trim();
+            const message = document.getElementById("commentMessage").value.trim();
+            if (!name || !message) return showCustomAlert("Nama dan pesan harus diisi!");
+            
+            try {
+                await push(ref(database, 'komentar'), {
+                    nama: name,
+                    pesan: message,
+                    waktu: new Date().toISOString(),
+                });
+                document.getElementById("commentForm").reset();
+            } catch (error) {
+                showCustomAlert("Gagal mengirim komentar.");
+            }
+        }
+        
+        async function submitFeedback(e) {
+            e.preventDefault();
+            const name = document.getElementById("feedbackName").value.trim();
+            const message = document.getElementById("feedbackMessage").value.trim();
+            if (!name || !message) return showCustomAlert("Nama dan masukan harus diisi!");
+
+            try {
+                await push(ref(database, 'feedback'), {
+                    nama: name,
+                    pesan: message,
+                    waktu: new Date().toISOString(),
+                });
+                showCustomAlert("Terima kasih atas masukan Anda!");
+                document.getElementById("feedbackForm").reset();
+            } catch (error) {
+                showCustomAlert("Gagal mengirim masukan.");
+            }
+        }
+
+        async function submitRecommendation(e) {
+            e.preventDefault();
+            const name = document.getElementById("recommendationName").value.trim();
+            const url = document.getElementById("recommendationUrl").value.trim();
+            const caption = document.getElementById("recommendationCaption").value.trim();
+            if (!name || !url || !caption) return showCustomAlert("Semua kolom harus diisi!");
+            
+            try {
+                await push(ref(database, 'photoRecommendations'), {
+                    nama: name,
+                    url: url,
+                    caption: caption,
+                    status: 'pending',
+                    waktu: new Date().toISOString(),
+                });
+                showCustomAlert("Terima kasih! Rekomendasi Anda akan ditinjau oleh Admin.");
+                document.getElementById("recommendationForm").reset();
+            } catch (error) {
+                showCustomAlert("Gagal mengirim rekomendasi.");
+            }
+        }
+
+        // --- STATS & UTILITIES ---
+        async function updateStats() {
+            const paths = ["jadwal", "tugas", "komentar", "galeri"];
+            const counts = await Promise.all(paths.map(async p => {
+                const snapshot = await get(ref(database, p));
+                return snapshot.exists() ? Object.keys(snapshot.val()).length : 0;
+            }));
+            
+            const [jadwalCount, tugasCount, komentarCount, galeriCount] = counts;
+            const mahasiswaCount = Object.keys(window.mahasiswaData).length;
+
+            document.getElementById("totalMahasiswa").textContent = mahasiswaCount;
+            document.getElementById("totalJadwal").textContent = jadwalCount;
+            document.getElementById("totalTugas").textContent = tugasCount;
+            document.getElementById("totalKomentar").textContent = komentarCount;
+
+            if (isAdmin) {
+                document.getElementById("adminCommentCount").textContent = komentarCount;
+                document.getElementById("adminStudentCount").textContent = mahasiswaCount;
+                document.getElementById("adminGalleryCount").textContent = galeriCount;
+            }
+        }
+
+        function formatDate(dateString) {
+            if(!dateString) return "N/A";
+            return new Date(dateString).toLocaleDateString("id-ID", { year: "numeric", month: "long", day: "numeric" });
+        }
+
+        function formatDateTime(dateTimeString) {
+            if(!dateTimeString) return "N/A";
+            return new Date(dateTimeString).toLocaleString("id-ID", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        }
+    </script>
+</body>
+</html>
+

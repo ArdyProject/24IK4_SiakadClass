@@ -1,0 +1,50 @@
+        /* ==============================================
+        RESPONSIVE DESIGN (Mobile First Approach)
+        ==============================================
+        */
+        
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) {
+            .container { padding: 0 2rem; }
+            .hero h2 { font-size: 3rem; }
+            .search-filter { grid-template-columns: 2fr 1fr 1fr; }
+        }
+
+        /* Large screens (desktops) */
+        @media (max-width: 1024px) {
+            .nav-toggle { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-menu li { width: 100%; }
+            .nav-link { display: block; text-align: center; padding: 1rem; }
+        }
+
+        /* Small screens (phones) */
+        @media (max-width: 480px) {
+            .hero { padding: 3rem 1rem; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .section { padding: 2rem 0; }
+            .section-header h2 { font-size: 1.75rem; }
+        }
